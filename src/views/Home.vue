@@ -24,9 +24,11 @@ export default {
   },
   methods: {
     deleteTodo(id) {
-      axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then(res => this.todos = this.todos.filter(todo => todo.id != res.data.id))
-        .catch(e => console.log(e))
+      // There is a problem with jsonplaceholder DELETE method so this won't work for now.
+      // axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      //   .then(res => this.todos = this.todos.filter(todo => todo.id != res.data.id))
+      //   .catch(e => console.log(e))
+      this.todos = this.todos.filter(todo => todo.id != id)
     },
     addTodo(newTodo) {
       const { title, completed } = newTodo;
